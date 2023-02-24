@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/Views/home.dart';
 
 import 'Views/homeview.dart';
 import 'Views/onboarding_screen.dart';

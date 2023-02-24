@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:weatherapp/constants/Colors.dart';
-import 'home.dart';
 import 'homeview.dart';
 
 class OnboardingScreen extends StatefulWidget {
