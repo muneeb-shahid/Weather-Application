@@ -93,8 +93,9 @@ class _HomeViewState extends State<HomeView> {
                 child: Stack(
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 15,vertical: 15
+                      ),
                       child: TextFormField(
                         controller: City_Name,
                         style: TextStyle(color: App_Colors.app_white_color),
