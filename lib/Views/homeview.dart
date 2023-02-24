@@ -27,19 +27,19 @@ class _HomeViewState extends State<HomeView> {
             child: SingleChildScrollView(
                 child: Column(children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(40),
-                      bottomRight: Radius.circular(40),
-                    )),
+                // height: MediaQuery.of(context).size.height * 1,
+                // width: MediaQuery.of(context).size.width,
+                // decoration: BoxDecoration(
+                //     color: Colors.transparent,
+                //     borderRadius: BorderRadius.only(
+                //       bottomLeft: Radius.circular(10),
+                //       bottomRight: Radius.circular(10),
+                //     )),
                 child: Stack(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 25),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                       child: TextFormField(
                         controller: City_Name,
                         style: TextStyle(color: App_Colors.app_white_color),
@@ -55,9 +55,9 @@ class _HomeViewState extends State<HomeView> {
                         },
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 3, color: Colors.white),
-                            borderRadius: BorderRadius.circular(20),
+                            borderSide: BorderSide(
+                                width: 3, color: App_Colors.app_white_color),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           hintText: "Search City",
                           hintStyle:
@@ -79,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 3, color: Colors.white),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
