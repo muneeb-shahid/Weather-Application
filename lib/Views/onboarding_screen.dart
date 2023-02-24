@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:weatherapp/constants/Colors.dart';
 import 'home.dart';
+import 'homeview.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -15,7 +16,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   login_Screen() {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (context) => Home_Screeen(),
+          builder: (context) => HomeView(),
         ),
         (Route<dynamic> route) => false);
   }
@@ -111,7 +112,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Home_Screeen(),
+                                  builder: (context) => HomeView(),
                                 ));
                           },
                           child: Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapp/Views/home.dart';
 
+import 'Views/homeview.dart';
 import 'Views/onboarding_screen.dart';
 
 void main() {
@@ -12,15 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Weather Application',
       theme: ThemeData(
-       
         primarySwatch: Colors.blue,
       ),
-      home:Home_Screeen(),
+      home: OnboardingScreen(),
     );
   }
 }
