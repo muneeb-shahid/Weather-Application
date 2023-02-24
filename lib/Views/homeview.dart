@@ -18,6 +18,9 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.location_pin)),
+          ],
           elevation: 0,
           backgroundColor: Color(0xff6AB9FE),
         ),
@@ -26,7 +29,6 @@ class _HomeViewState extends State<HomeView> {
           child: ListView(
             padding: EdgeInsets.only(
               top: 10,
-              // left: 10,
             ),
             children: [
               Container(
@@ -137,7 +139,6 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                     ),
-                    
                   ],
                 ),
               ),
