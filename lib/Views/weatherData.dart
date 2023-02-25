@@ -116,7 +116,6 @@
 //                               ],
 //                             ),
 //                           ),
-                         
 
 //                           Text(
 //                             snapshot.data.weather[0].description,
@@ -223,6 +222,7 @@ import 'package:flutter/material.dart';
 import 'package:weatherapp/Controller/home_controller.dart';
 import 'package:weatherapp/constants/Colors.dart';
 
+import '../function/dataWeather_Function.dart';
 import '../images/images.dart';
 
 class DataWeather extends StatefulWidget {
@@ -246,7 +246,7 @@ class _DataWeatherState extends State<DataWeather> {
               },
               icon: Icon(
                 Icons.arrow_back_ios_new_rounded,
-                 color: App_Colors.app_white_color,
+                color: App_Colors.app_white_color,
               )),
           actions: [
             IconButton(
@@ -257,7 +257,7 @@ class _DataWeatherState extends State<DataWeather> {
                     });
                   } else {
                     setState(() {
-                    isfavourite = false;
+                      isfavourite = false;
                     });
                   }
                 },
@@ -272,15 +272,15 @@ class _DataWeatherState extends State<DataWeather> {
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
-               image: DecorationImage(
+                image: DecorationImage(
                     image: AssetImage(
                       App_Images.white_theme_image,
                     ),
                     fit: BoxFit.cover)),
-            child: SingleChildScrollView( 
+            child: SingleChildScrollView(
                 child: Column(children: [
               SizedBox(
-                height: 50,
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
               FutureBuilder(
                 future: getusers(),
@@ -291,40 +291,40 @@ class _DataWeatherState extends State<DataWeather> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 30,
+                          height: MediaQuery.of(context).size.height * 0.05,
                         ),
-                        Text(
-                          "RealFeel: ${snapshot.data.main.feelsLike}°",
-                          style: TextStyle(
-                               color: App_Colors.app_white_color, fontSize: 15),
+                        Padding(
+                          padding:  EdgeInsets.only(left: 20,right: 20),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 1,
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(84, 0, 0, 0)),
+                            child: Column(
+                              children: [
+                                
+                                Weather_Data.Data_Weather_text(context,
+                                    "${snapshot.data.main.temp}°", 23),
+                                Weather_Data.Data_Weather_text(context,
+                                    "${snapshot.data.name}", 25),
+                                Weather_Data.Data_Weather_text(context,
+                                    "RealFeel: ${snapshot.data.main.feelsLike}°",
+                                    20),
+                                Weather_Data.Data_Weather_text(context,
+                                    snapshot.data.weather[0].description, 20),
+                              ],
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "${snapshot.data.name}",
-                          style: TextStyle(
-                               color: App_Colors.app_white_color, fontSize: 30),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          "${snapshot.data.main.temp}°",
-                          style: TextStyle(
-                               color: App_Colors.app_white_color, fontSize: 50),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          snapshot.data.weather[0].description,
-                          style: TextStyle(
-                               color: App_Colors.app_white_color, fontSize: 18),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        // Weather_Data.Data_Weather_text(
+                        //     "${snapshot.data.main.temp}°", 23),
+                        // Weather_Data.Data_Weather_text(
+                        //     "${snapshot.data.name}", 25),
+                        // Weather_Data.Data_Weather_text(
+                        //     "RealFeel: ${snapshot.data.main.feelsLike}°", 20),
+                        // Weather_Data.Data_Weather_text(
+                        //     snapshot.data.weather[0].description, 20),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -340,18 +340,14 @@ class _DataWeatherState extends State<DataWeather> {
                                   SizedBox(
                                     width: 3,
                                   ),
-                                  Text(
-                                    "${snapshot.data.main.tempMin}°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 12),
-                                  ),
+                                  Weather_Data.Data_Weather_text(context,
+                                      "${snapshot.data.main.tempMin}°", 14),
                                 ],
                               ),
                             ),
                             SizedBox(
-                              width: 15,
-                            ),
+                                width:
+                                    MediaQuery.of(context).size.width * 0.03),
                             Container(
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10)),
@@ -362,231 +358,190 @@ class _DataWeatherState extends State<DataWeather> {
                                     color: App_Colors.app_blue_theme,
                                   ),
                                   SizedBox(
-                                    width: 3,
-                                  ),
-                                  Text(
-                                    "${snapshot.data.main.tempMax}°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 12),
-                                  ),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.03),
+                                  Weather_Data.Data_Weather_text( context,
+                                      "${snapshot.data.main.tempMax}°", 14),
                                 ],
                               ),
                             ),
                           ],
                         ),
                         SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          "No Precipitation for at least 180 min",
-                          style: TextStyle(
-                               color: App_Colors.app_white_color, fontSize: 18),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          width: 460,
-                          height: 130,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color.fromARGB(84, 0, 0, 0)),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "1 AM",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Icon(
-                                    Icons.nights_stay_sharp,
-                                     color: App_Colors.app_white_color,
-                                    size: 30,
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "21°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 25,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "2 AM",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Icon(
-                                    Icons.nights_stay_sharp,
-                                     color: App_Colors.app_white_color,
-                                    size: 30,
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "20°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 25,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "3 AM",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Icon(
-                                    Icons.nights_stay_sharp,
-                                     color: App_Colors.app_white_color,
-                                    size: 30,
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "20°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 25,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "4 AM",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Icon(
-                                    Icons.cloud,
-                                     color: App_Colors.app_white_color,
-                                    size: 30,
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "18°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 25,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "5 AM",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Icon(
-                                    Icons.cloudy_snowing,
-                                     color: App_Colors.app_white_color,
-                                    size: 30,
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text(
-                                    "15°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                            ],
+                            height: MediaQuery.of(context).size.height * 0.01),
+                        Weather_Data.Data_Weather_text(context,
+                            "${snapshot.data.main.tempMax}°", 14),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, right: 20),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.18,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(84, 0, 0, 0)),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Weather_Data.data_Wether_container_text(
+                                      context,
+                                      "Now",
+                                      Icons.sunny,
+                                      "31°",
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.05),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Weather_Data.data_Wether_container_text(
+                                      context,
+                                      "10 AM",
+                                      Icons.nights_stay_sharp,
+                                      "24°",
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.05),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Weather_Data.data_Wether_container_text(
+                                      context,
+                                      "11 AM",
+                                      Icons.nights_stay_sharp,
+                                      "28°",
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.05,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Weather_Data.data_Wether_container_text(
+                                      context,
+                                      "12 AM",
+                                      Icons.cloud,
+                                      "18°",
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.05,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Weather_Data.data_Wether_container_text(
+                                      context,
+                                      "1 pM",
+                                      Icons.cloudy_snowing,
+                                      "15°",
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.01,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: MediaQuery.of(context).size.height * 0.05,
                         ),
-                        Container(
-                          width: 460,
-                          height: 480,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color.fromARGB(84, 0, 0, 0)),
-                          child: Column(
-                            children: [
-                              SingleChildScrollView(
-                                child: Row(
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, right: 20),
+                          child: Container(
+                            // width: MediaQuery.of(context).size.width * 0.9,
+                            //  height: MediaQuery.of(context).size.height * 0.9,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(84, 0, 0, 0)),
+                            child: Column(
+                              children: [
+                                SingleChildScrollView(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          SizedBox(height: 20),
+                                          Text(
+                                            "24/2",
+                                            style: TextStyle(
+                                                color:
+                                                    App_Colors.app_white_color,
+                                                fontSize: 14),
+                                          ),
+                                          Text(
+                                            "Fri",
+                                            style: TextStyle(
+                                                color:
+                                                    App_Colors.app_white_color,
+                                                fontSize: 15),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: 40,
+                                        height: 35,
+                                      ),
+                                      Image(
+                                          height: 40,
+                                          width: 40,
+                                          image: NetworkImage(
+                                            "https://assets5.lottiefiles.com/packages/lf20_yKGuIT.json",
+                                          )),
+                                      Text(
+                                        "22°",
+                                        style: TextStyle(
+                                            color: App_Colors.app_white_color,
+                                            fontSize: 15),
+                                      ),
+                                      SizedBox(
+                                        width: 30,
+                                        height: 35,
+                                      ),
+                                      Text(
+                                        "30°",
+                                        style: TextStyle(
+                                            color: App_Colors.app_white_color,
+                                            fontSize: 15),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Divider(
+                                  color: Color.fromARGB(255, 35, 35, 35),
+                                  height: 2,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -594,15 +549,15 @@ class _DataWeatherState extends State<DataWeather> {
                                       children: [
                                         SizedBox(height: 20),
                                         Text(
-                                          "24/2",
+                                          "25/2",
                                           style: TextStyle(
-                                               color: App_Colors.app_white_color,
+                                              color: App_Colors.app_white_color,
                                               fontSize: 14),
                                         ),
                                         Text(
-                                          "Fri",
+                                          "Sat",
                                           style: TextStyle(
-                                               color: App_Colors.app_white_color,
+                                              color: App_Colors.app_white_color,
                                               fontSize: 15),
                                         ),
                                       ],
@@ -611,13 +566,16 @@ class _DataWeatherState extends State<DataWeather> {
                                       width: 40,
                                       height: 35,
                                     ),
-                                     Image(height: 40,
-                                      width: 40,  image: NetworkImage( "https://assets5.lottiefiles.com/packages/lf20_yKGuIT.json",)),
-                                    
+                                    Image(
+                                        height: 40,
+                                        width: 40,
+                                        image: NetworkImage(
+                                          " https://assets5.lottiefiles.com/packages/lf20_yKGuIT.json",
+                                        )),
                                     Text(
-                                      "22°",
+                                      "21°",
                                       style: TextStyle(
-                                           color: App_Colors.app_white_color,
+                                          color: App_Colors.app_white_color,
                                           fontSize: 15),
                                     ),
                                     SizedBox(
@@ -625,306 +583,260 @@ class _DataWeatherState extends State<DataWeather> {
                                       height: 35,
                                     ),
                                     Text(
-                                      "30°",
+                                      "31°",
                                       style: TextStyle(
-                                           color: App_Colors.app_white_color,
+                                          color: App_Colors.app_white_color,
                                           fontSize: 15),
                                     ),
                                   ],
                                 ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Divider(
-                                color: Color.fromARGB(255, 35, 35, 35),
-                                height: 2,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      SizedBox(height: 20),
-                                      Text(
-                                        "25/2",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 14),
-                                      ),
-                                      Text(
-                                        "Sat",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                    height: 35,
-                                  ),
-                                   Image(height: 40,
-                                      width: 40,  image: NetworkImage( " https://assets5.lottiefiles.com/packages/lf20_yKGuIT.json",)),
-                                 
-                                  Text(
-                                    "21°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 30,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "31°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Divider(
-                                color: Color.fromARGB(255, 35, 35, 35),
-                                height: 2,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      SizedBox(height: 20),
-                                      Text(
-                                        "26/2",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 14),
-                                      ),
-                                      Text(
-                                        "Sun",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                    height: 35,
-                                  ),
-                                  Image(height: 40,
-                                      width: 40,  image: NetworkImage( "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",)),
-                                  
-                                  Text(
-                                    "15°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 30,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "25°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Divider(
-                                color: Color.fromARGB(255, 35, 35, 35),
-                                height: 2,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      SizedBox(height: 20),
-                                      Text(
-                                        "27/2",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 14),
-                                      ),
-                                      Text(
-                                        "Mon",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                    height: 35,
-                                  ),
-                                  Image( height: 40,
-                                      width: 40,  image: NetworkImage(   "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",)),
-                                  
-                                  Text(
-                                    "16°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 30,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "25°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Divider(
-                                color: Color.fromARGB(255, 35, 35, 35),
-                                height: 2,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      SizedBox(height: 20),
-                                      Text(
-                                        "28/2",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 14),
-                                      ),
-                                      Text(
-                                        "Tue",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                    height: 35,
-                                  ),
-                                  Image(  height: 40,
-                                      width: 40,image: NetworkImage("https://assets8.lottiefiles.com/temp/lf20_VAmWRg.json",)),
-
-                                 
-                                  Text(
-                                    "14°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 30,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "20°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Divider(
-                                color: Color.fromARGB(255, 35, 35, 35),
-                                height: 2,
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    children: [
-                                      SizedBox(height: 20),
-                                      Text(
-                                        "1/3",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 14),
-                                      ),
-                                      Text(
-                                        "Wed",
-                                        style: TextStyle(
-                                             color: App_Colors.app_white_color,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                    height: 35,
-                                  ),
-                                  Image( height: 40,
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Divider(
+                                  color: Color.fromARGB(255, 35, 35, 35),
+                                  height: 2,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SizedBox(height: 20),
+                                        Text(
+                                          "26/2",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 14),
+                                        ),
+                                        Text(
+                                          "Sun",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
                                       width: 40,
-                                    image: NetworkImage("https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",
-                                     )),
-                                  // Lottie.network(
-                                  //     "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",
-                                  //     height: 40,
-                                  //     width: 40,
-                                  //     repeat: true),
-                                  SizedBox(
-                                    width: 30,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "14°",
-                                    style: TextStyle(
-                                         color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 30,
-                                    height: 35,
-                                  ),
-                                  Text(
-                                    "26°",
-                                    style: TextStyle(
-                                        color: App_Colors.app_white_color,
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                      height: 35,
+                                    ),
+                                    Image(
+                                        height: 40,
+                                        width: 40,
+                                        image: NetworkImage(
+                                          "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",
+                                        )),
+                                    Text(
+                                      "15°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                      height: 35,
+                                    ),
+                                    Text(
+                                      "25°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Divider(
+                                  color: Color.fromARGB(255, 35, 35, 35),
+                                  height: 2,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SizedBox(height: 20),
+                                        Text(
+                                          "27/2",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 14),
+                                        ),
+                                        Text(
+                                          "Mon",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 40,
+                                      height: 35,
+                                    ),
+                                    Image(
+                                        height: 40,
+                                        width: 40,
+                                        image: NetworkImage(
+                                          "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",
+                                        )),
+                                    Text(
+                                      "16°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                      height: 35,
+                                    ),
+                                    Text(
+                                      "25°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Divider(
+                                  color: Color.fromARGB(255, 35, 35, 35),
+                                  height: 2,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SizedBox(height: 20),
+                                        Text(
+                                          "28/2",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 14),
+                                        ),
+                                        Text(
+                                          "Tue",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 40,
+                                      height: 35,
+                                    ),
+                                    Image(
+                                        height: 40,
+                                        width: 40,
+                                        image: NetworkImage(
+                                          "https://assets8.lottiefiles.com/temp/lf20_VAmWRg.json",
+                                        )),
+                                    Text(
+                                      "14°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                      height: 35,
+                                    ),
+                                    Text(
+                                      "20°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Divider(
+                                  color: Color.fromARGB(255, 35, 35, 35),
+                                  height: 2,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        SizedBox(height: 20),
+                                        Text(
+                                          "1/3",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 14),
+                                        ),
+                                        Text(
+                                          "Wed",
+                                          style: TextStyle(
+                                              color: App_Colors.app_white_color,
+                                              fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      width: 40,
+                                      height: 35,
+                                    ),
+                                    Image(
+                                        height: 40,
+                                        width: 40,
+                                        image: NetworkImage(
+                                          "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",
+                                        )),
+                                    // Lottie.network(
+                                    //     "https://assets10.lottiefiles.com/packages/lf20_trr3kzyu.json",
+                                    //     height: 40,
+                                    //     width: 40,
+                                    //     repeat: true),
+                                    SizedBox(
+                                      width: 30,
+                                      height: 35,
+                                    ),
+                                    Text(
+                                      "14°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                      height: 35,
+                                    ),
+                                    Text(
+                                      "26°",
+                                      style: TextStyle(
+                                          color: App_Colors.app_white_color,
+                                          fontSize: 15),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         )
                       ],
