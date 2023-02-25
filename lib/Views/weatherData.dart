@@ -236,8 +236,7 @@ class _DataWeatherState extends State<DataWeather> {
                         Padding(
                           padding: EdgeInsets.only(left: 20, right: 20),
                           child: Container(
-                            // width: MediaQuery.of(context).size.width * 0.9,
-                            //  height: MediaQuery.of(context).size.height * 0.9,
+                            
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: Color.fromARGB(100, 0, 0, 0)),
@@ -277,30 +276,55 @@ class _DataWeatherState extends State<DataWeather> {
                                                       wordSpacing: 2,
                                                       letterSpacing: 2),
                                                 ),
-                                                
                                               ],
                                             ),
                                           ),
-                                          Weather_Data.data_Weather_Days("TODAY", 20, "55°", 'assets/images/range.png', "85°", context),
-                                          Weather_Data.data_Weather_Days("MON", 20, "55°", 'assets/images/range.png', "81°", context),
-                                          Weather_Data.data_Weather_Days("TUE", 20, "56°", 'assets/images/range.png', "87°", context),
-                                          Weather_Data.data_Weather_Days("WED", 20, "59°", 'assets/images/range.png', "90°", context),
-                                          Weather_Data.data_Weather_Days("THUR", 20, "60°", 'assets/images/range.png', "82°", context),
-                                         SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.02,
-                                                ),
+                                          Weather_Data.data_Weather_Days(
+                                              "TODAY",
+                                              20,
+                                              "55°",
+                                              'assets/images/range.png',
+                                              "85°",
+                                              context),
+                                          Weather_Data.data_Weather_Days(
+                                              "MON",
+                                              20,
+                                              "55°",
+                                              'assets/images/range.png',
+                                              "81°",
+                                              context),
+                                          Weather_Data.data_Weather_Days(
+                                              "TUES",
+                                              20,
+                                              "56°",
+                                              'assets/images/range.png',
+                                              "87°",
+                                              context),
+                                          Weather_Data.data_Weather_Days(
+                                              "FRI",
+                                              20,
+                                              "59°",
+                                              'assets/images/range.png',
+                                              "90°",
+                                              context),
+                                          Weather_Data.data_Weather_Days(
+                                              "THURS",
+                                              20,
+                                              "60°",
+                                              'assets/images/range.png',
+                                              "82°",
+                                              context),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.02,
+                                          ),
                                         ],
                                       ),
-                                      
-                                      
                                     ],
                                   ),
                                 ),
-                              
-                              
                               ],
                             ),
                           ),
