@@ -82,8 +82,7 @@ class _DataWeatherState extends State<DataWeather> {
                             height: MediaQuery.of(context).size.height * 0.3,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(100, 0, 0, 0)
-                                ),
+                                color: Color.fromARGB(100, 0, 0, 0)),
                             child: Column(
                               children: [
                                 SizedBox(
@@ -111,16 +110,13 @@ class _DataWeatherState extends State<DataWeather> {
                                 ),
                                 Weather_Data.Data_Weather_text(
                                     snapshot.data.weather[0].description, 20),
-
-                              SizedBox(
+                                SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.01,
                                 ),
-
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    
                                     Icon(
                                       Icons.thermostat,
                                       color: App_Colors.app_red_theme,
@@ -131,7 +127,6 @@ class _DataWeatherState extends State<DataWeather> {
                                       Icons.thermostat,
                                       color: App_Colors.app_blue_theme,
                                     ),
-                                 
                                     Weather_Data.Data_Weather_text(
                                         "${snapshot.data.main.tempMax}°", 14),
                                   ],
@@ -142,7 +137,6 @@ class _DataWeatherState extends State<DataWeather> {
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.03),
-                       
                         Padding(
                           padding: EdgeInsets.only(left: 20, right: 20),
                           child: Container(
@@ -246,8 +240,7 @@ class _DataWeatherState extends State<DataWeather> {
                             //  height: MediaQuery.of(context).size.height * 0.9,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(100, 0, 0, 0)
-                                ),
+                                color: Color.fromARGB(100, 0, 0, 0)),
                             child: Column(
                               children: [
                                 SingleChildScrollView(
@@ -257,13 +250,41 @@ class _DataWeatherState extends State<DataWeather> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Column(
-
                                         children: [
-                                          Row(
-                                            children: [
-                                              Icon(Icons.calendar_month_outlined,color: App_Colors.app_white_color),
-                                              Text("10-DAY FORECAST",style: TextStyle(fontSize: 15,fontFamily: "Poppins",color: App_Colors.app_white_color,wordSpacing: 2,letterSpacing: 2),)
-                                            ],
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 20, top: 10),
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                    Icons
+                                                        .calendar_month_outlined,
+                                                    color: App_Colors
+                                                        .app_white_color),
+                                                SizedBox(
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.02,
+                                                ),
+                                                Text(
+                                                  "10-DAY FORECAST",
+                                                  style: TextStyle(
+                                                      fontSize: 15,
+                                                      fontFamily: "Poppins",
+                                                      color: App_Colors
+                                                          .app_white_color,
+                                                      wordSpacing: 2,
+                                                      letterSpacing: 2),
+                                                ),
+                                                Divider(
+                                                  height: 1,
+                                                  thickness: 1,
+                                                  color: App_Colors
+                                                      .app_white_color,
+                                                )
+                                              ],
+                                            ),
                                           ),
                                           SizedBox(height: 20),
                                           Text(
