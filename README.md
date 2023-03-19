@@ -8,6 +8,8 @@
  <span class="column">
     <img  align="left" src="https://user-images.githubusercontent.com/115135886/226182859-82903ed4-4169-4589-a165-5bec4a50f856.png"  style="width:300"  height="500">
   </span>
+  
+  <hr>
 <span class="column">
     <img  align="left" src="https://user-images.githubusercontent.com/115135886/226182900-55170edf-5c3b-416b-88a7-29cbf242a234.png"  style="width:300"  height="500">
   </span>
