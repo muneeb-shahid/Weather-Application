@@ -83,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(
-                  AppImages.white_theme_image,
+                  AppImages.whiteThemeImage,
                 ),
                 fit: BoxFit.cover)),
         child: SingleChildScrollView(
