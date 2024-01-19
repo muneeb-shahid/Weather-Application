@@ -1,10 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
-import 'package:weatherapp/Controller/home_controller.dart';
-import 'package:weatherapp/constants/Colors.dart';
-
-import '../function/dataWeather_Function.dart';
+import 'package:weatherapp/constants/colors.dart';
+import 'package:weatherapp/controller/home_controller.dart';
+import '../function/data_weather_function.dart';
 import '../images/images.dart';
 
 class DataWeather extends StatefulWidget {
@@ -28,7 +25,7 @@ class _DataWeatherState extends State<DataWeather> {
               },
               icon: Icon(
                 Icons.arrow_back_ios_new_rounded,
-                color: App_Colors.app_white_color,
+                color: AppColors.appWhiteColor,
               )),
           actions: [
             IconButton(
@@ -56,7 +53,7 @@ class _DataWeatherState extends State<DataWeather> {
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
-                      App_Images.white_theme_image,
+                      AppImages.white_theme_image,
                     ),
                     fit: BoxFit.cover)),
             child: SingleChildScrollView(
@@ -76,39 +73,39 @@ class _DataWeatherState extends State<DataWeather> {
                           height: MediaQuery.of(context).size.height * 0.05,
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 20, right: 20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 1,
                             height: MediaQuery.of(context).size.height * 0.3,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(100, 0, 0, 0)),
+                                color: const Color.fromARGB(100, 0, 0, 0)),
                             child: Column(
                               children: [
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.03,
                                 ),
-                                Weather_Data.Data_Weather_text(
+                                WeatherData.dataWeatherText(
                                     "${snapshot.data.main.temp}°", 23),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.01,
                                 ),
-                                Weather_Data.Data_Weather_text(
+                                WeatherData.dataWeatherText(
                                     "${snapshot.data.name}", 25),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.01,
                                 ),
-                                Weather_Data.Data_Weather_text(
+                                WeatherData.dataWeatherText(
                                     "RealFeel: ${snapshot.data.main.feelsLike}°",
                                     20),
                                 SizedBox(
                                   height:
                                       MediaQuery.of(context).size.height * 0.01,
                                 ),
-                                Weather_Data.Data_Weather_text(
+                                WeatherData.dataWeatherText(
                                     snapshot.data.weather[0].description, 20),
                                 SizedBox(
                                   height:
@@ -119,15 +116,13 @@ class _DataWeatherState extends State<DataWeather> {
                                   children: [
                                     Icon(
                                       Icons.thermostat,
-                                      color: App_Colors.app_red_theme,
+                                      color: AppColors.appRedTheme,
                                     ),
-                                    Weather_Data.Data_Weather_text(
+                                    WeatherData.dataWeatherText(
                                         "${snapshot.data.main.tempMin}°", 14),
-                                    Icon(
-                                      Icons.thermostat,
-                                      color: App_Colors.app_blue_theme,
-                                    ),
-                                    Weather_Data.Data_Weather_text(
+                                    Icon(Icons.thermostat,
+                                        color: AppColors.appBlueTheme),
+                                    WeatherData.dataWeatherText(
                                         "${snapshot.data.main.tempMax}°", 14),
                                   ],
                                 ),
@@ -138,12 +133,12 @@ class _DataWeatherState extends State<DataWeather> {
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.03),
                         Padding(
-                          padding: EdgeInsets.only(left: 20, right: 20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.18,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(100, 0, 0, 0)),
+                                color: const Color.fromARGB(100, 0, 0, 0)),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +147,7 @@ class _DataWeatherState extends State<DataWeather> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Weather_Data.data_Wether_container_text(
+                                    WeatherData.dataWetherContainerText(
                                       context,
                                       "Now",
                                       Icons.sunny,
@@ -167,7 +162,7 @@ class _DataWeatherState extends State<DataWeather> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Weather_Data.data_Wether_container_text(
+                                    WeatherData.dataWetherContainerText(
                                       context,
                                       "10 AM",
                                       Icons.nights_stay_sharp,
@@ -182,7 +177,7 @@ class _DataWeatherState extends State<DataWeather> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Weather_Data.data_Wether_container_text(
+                                    WeatherData.dataWetherContainerText(
                                       context,
                                       "11 AM",
                                       Icons.nights_stay_sharp,
@@ -198,7 +193,7 @@ class _DataWeatherState extends State<DataWeather> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Weather_Data.data_Wether_container_text(
+                                    WeatherData.dataWetherContainerText(
                                       context,
                                       "12 AM",
                                       Icons.cloud,
@@ -214,7 +209,7 @@ class _DataWeatherState extends State<DataWeather> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Weather_Data.data_Wether_container_text(
+                                    WeatherData.dataWetherContainerText(
                                       context,
                                       "1 PM",
                                       Icons.cloudy_snowing,
@@ -234,12 +229,11 @@ class _DataWeatherState extends State<DataWeather> {
                           height: MediaQuery.of(context).size.height * 0.03,
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 20, right: 20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Container(
-                            
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(100, 0, 0, 0)),
+                                color: const Color.fromARGB(100, 0, 0, 0)),
                             child: Column(
                               children: [
                                 SingleChildScrollView(
@@ -251,15 +245,15 @@ class _DataWeatherState extends State<DataWeather> {
                                       Column(
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 left: 0, top: 10),
                                             child: Row(
                                               children: [
                                                 Icon(
-                                                    Icons
-                                                        .calendar_month_outlined,
-                                                    color: App_Colors
-                                                        .app_white_color),
+                                                  Icons.calendar_month_outlined,
+                                                  color:
+                                                      AppColors.appWhiteColor,
+                                                ),
                                                 SizedBox(
                                                   width: MediaQuery.of(context)
                                                           .size
@@ -271,43 +265,43 @@ class _DataWeatherState extends State<DataWeather> {
                                                   style: TextStyle(
                                                       fontSize: 15,
                                                       fontFamily: "Poppins",
-                                                      color: App_Colors
-                                                          .app_white_color,
+                                                      color: AppColors
+                                                          .appWhiteColor,
                                                       wordSpacing: 2,
                                                       letterSpacing: 2),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          Weather_Data.data_Weather_Days(
+                                          WeatherData.dataWeatherDays(
                                               "TODAY",
                                               20,
                                               "55°",
                                               'assets/images/range.png',
                                               "85°",
                                               context),
-                                          Weather_Data.data_Weather_Days(
+                                          WeatherData.dataWeatherDays(
                                               "MON",
                                               20,
                                               "55°",
                                               'assets/images/range.png',
                                               "81°",
                                               context),
-                                          Weather_Data.data_Weather_Days(
+                                          WeatherData.dataWeatherDays(
                                               "TUES",
                                               20,
                                               "56°",
                                               'assets/images/range.png',
                                               "87°",
                                               context),
-                                          Weather_Data.data_Weather_Days(
+                                          WeatherData.dataWeatherDays(
                                               "FRI",
                                               20,
                                               "59°",
                                               'assets/images/range.png',
                                               "90°",
                                               context),
-                                          Weather_Data.data_Weather_Days(
+                                          WeatherData.dataWeatherDays(
                                               "THURS",
                                               20,
                                               "60°",

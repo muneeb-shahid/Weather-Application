@@ -1,54 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/constants/Colors.dart';
+import 'package:weatherapp/constants/colors.dart';
 
-class Weather_Data {
-  static data_Weather_Days(
-    String text,
-    double fontsize,
-    String text1,
-    assetName,
-    String text2,
-    context
-  ) {
+class WeatherData {
+  static dataWeatherDays(String text, double fontsize, String text1, assetName,
+      String text2, context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10,top: 10),
+      padding: const EdgeInsets.only(left: 10, top: 10),
       child: Row(
         children: [
           Text(
             text,
             style: TextStyle(
-                color: App_Colors.app_white_color,
+                color: AppColors.appWhiteColor,
                 fontSize: fontsize,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Poppins',
                 letterSpacing: 2),
           ),
-          SizedBox(width: MediaQuery.of(context).size.width*0.03,),
-          Icon(
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
+          ),
+          const Icon(
             Icons.sunny,
             color: Colors.yellow,
             size: 25,
           ),
-          SizedBox(width: MediaQuery.of(context).size.width*0.03,),
-    
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
+          ),
           Text(
             text1,
             style: TextStyle(
-                color: App_Colors.app_white_color,
+                color: AppColors.appWhiteColor,
                 fontSize: fontsize,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Poppins',
                 letterSpacing: 2),
           ),
-          SizedBox(width: MediaQuery.of(context).size.width*0.03,),
-    
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
+          ),
           Image(image: AssetImage(assetName)),
-          SizedBox(width: MediaQuery.of(context).size.width*0.03,),
-    
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
+          ),
           Text(
             text2,
             style: TextStyle(
-                color: App_Colors.app_white_color,
+                color: AppColors.appWhiteColor,
                 fontSize: fontsize,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Poppins',
@@ -59,11 +58,11 @@ class Weather_Data {
     );
   }
 
-  static Data_Weather_text(String text, double fontsize) {
+  static dataWeatherText(String text, double fontsize) {
     return Text(
       text,
       style: TextStyle(
-          color: App_Colors.app_white_color,
+          color: AppColors.appWhiteColor,
           fontSize: fontsize,
           fontWeight: FontWeight.w600,
           fontFamily: 'Poppins',
@@ -71,7 +70,7 @@ class Weather_Data {
     );
   }
 
-  static data_Wether_container_text(
+  static dataWetherContainerText(
     context,
     String text,
     icon,
@@ -86,7 +85,7 @@ class Weather_Data {
           text,
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: App_Colors.app_white_color,
+            color: AppColors.appWhiteColor,
             fontSize: 16,
             fontFamily: 'Poppins',
           ),
@@ -96,7 +95,7 @@ class Weather_Data {
         ),
         Icon(
           icon,
-          color: App_Colors.app_white_color,
+          color: AppColors.appWhiteColor,
           size: 30,
         ),
         SizedBox(
@@ -106,7 +105,7 @@ class Weather_Data {
           text1,
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: App_Colors.app_white_color,
+            color: AppColors.appWhiteColor,
             fontSize: 16,
             fontFamily: 'Poppins',
           ),

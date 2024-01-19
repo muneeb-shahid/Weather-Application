@@ -1,4 +1,4 @@
-class User_Models {
+class UserModels {
   Coord? coord;
   List<Weather>? weather;
   String? base;
@@ -13,7 +13,7 @@ class User_Models {
   String? name;
   int? cod;
 
-  User_Models(
+  UserModels(
       {this.coord,
       this.weather,
       this.base,
@@ -28,7 +28,7 @@ class User_Models {
       this.name,
       this.cod});
 
-  User_Models.fromJson(Map<String, dynamic> json) {
+  UserModels.fromJson(Map<String, dynamic> json) {
     coord = json['coord'] != null ? new Coord.fromJson(json['coord']) : null;
     if (json['weather'] != null) {
       weather = <Weather>[];

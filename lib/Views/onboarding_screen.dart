@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:weatherapp/constants/Colors.dart';
-import 'homeview.dart';
+import 'package:weatherapp/constants/colors.dart';
+import 'home_view.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -12,7 +10,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  login_Screen() {
+  loginScreen() {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
           builder: (context) => HomeView(),
@@ -32,7 +30,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {
       'image': 'assets/images/new york.png',
       'title': 'NEW YORK',
-
     },
   ];
 
@@ -49,17 +46,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: App_Colors.app_white_color,
+        backgroundColor: AppColors.appWhiteColor,
         actions: [
           TextButton(
-            onPressed: login_Screen,
+            onPressed: loginScreen,
             child: Text(
               "Skip",
               style: TextStyle(
                 fontFamily: 'Philosopher',
                 letterSpacing: 3,
                 fontSize: 18,
-                color: App_Colors.app_black_color,
+                color: AppColors.appBlackColor,
               ),
             ),
           )
@@ -88,13 +85,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           wordSpacing: 3,
                           fontWeight: FontWeight.w800,
                           fontSize: 22,
-                          color: App_Colors.app_black_color,
+                          color: AppColors.appBlackColor,
                         ),
                       ),
                     ),
-                    // SizedBox(
-                    //   height: 20,
-                    // ),
                   ],
                 );
               },
@@ -121,16 +115,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               width: MediaQuery.of(context).size.width * 0.50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: App_Colors.app_green_color,
+                                color: AppColors.appGreenColor,
                               ),
                               child: Center(
                                   child: Text(
                                 'Get Started',
                                 style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    color: App_Colors.app_white_color),
+                                  fontFamily: 'Inter',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.appWhiteColor,
+                                ),
                               )),
                             ),
                           ),
@@ -143,12 +138,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           children: List<Widget>.generate(onboardingData.length,
                               (index) {
                             return AnimatedContainer(
-                              duration: Duration(
+                              duration: const Duration(
                                 milliseconds: 200,
                               ),
                               height: 10,
                               width: (index == currentPage) ? 20 : 10,
-                              margin: EdgeInsets.symmetric(horizontal: 5),
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 color: (index == currentPage)

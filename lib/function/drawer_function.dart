@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../constants/Colors.dart';
+import '../constants/colors.dart';
 
-class Drawer_Function {
-  static drawer_list_function(iconn, String text) {
+class DrawerFunction {
+  static drawerListFunction(iconn, String text) {
     return Column(
       children: [
         ListTile(
           leading: Icon(
             iconn,
-            color: App_Colors.app_white_color,
+            color: AppColors.appWhiteColor,
             size: 30,
           ),
           title: Text(
             text,
-            style: TextStyle(
-             letterSpacing: 2,
+            style: const TextStyle(
+                letterSpacing: 2,
                 fontFamily: 'Poppins',
                 color: Colors.white,
                 fontSize: 20,
@@ -24,7 +24,7 @@ class Drawer_Function {
         ),
         Divider(
           thickness: 1,
-          color: App_Colors.app_white_color,
+          color: AppColors.appWhiteColor,
         ),
       ],
     );
