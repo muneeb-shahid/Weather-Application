@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'views/home_view.dart';
-import 'views/onboarding_screen.dart';
+import 'view/home_view.dart';
+import 'view/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapp/controller/home_controller.dart';
 import 'package:weatherapp/images/images.dart';
-import 'package:weatherapp/views/weather_data.dart';
+import 'package:weatherapp/view/weather_data.dart';
 import '../constants/colors.dart';
 import '../function/drawer_function.dart';
 
@@ -121,7 +121,7 @@ class _HomeViewState extends State<HomeView> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const DataWeather()));
+                                           DataWeather()));
                               setState(() {
                                 getusers();
                               });
