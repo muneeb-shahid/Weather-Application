@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weatherapp/constants/colors.dart';
-import 'package:weatherapp/controller/home_controller.dart';
+import 'package:weatherapp/view_model/home_view_model.dart';
 import '../function/data_weather_function.dart';
 import '../images/images.dart';
 

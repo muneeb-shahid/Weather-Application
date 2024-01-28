@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weatherapp/controller/home_controller.dart';
 import 'package:weatherapp/images/images.dart';
 import 'package:weatherapp/view/weather_data.dart';
+import 'package:weatherapp/view_model/home_view_model.dart';
 import '../constants/colors.dart';
 import '../function/drawer_function.dart';
 
